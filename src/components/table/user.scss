@@ -1,0 +1,18 @@
+.user{
+    display: flex;
+
+    .navbaruser{
+        flex: 6;
+        
+        .userTable
+        {
+          padding: 20px;
+          .userbtn{
+            margin-left: 75rem;
+          }
+          .savetable{
+            margin-top: 20px;
+          }
+         }
+    }
+}

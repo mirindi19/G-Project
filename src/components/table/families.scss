@@ -1,0 +1,18 @@
+.families{
+    display: flex;
+
+    .navbarfamilies{
+        flex: 6;
+        
+        .familiesTable
+        {
+          padding: 20px;
+          .familiesbtn{
+            margin-left: 78rem;
+          }
+          .savetablefamilies{
+            margin-top: 20px;
+          }
+         }
+    }
+}

@@ -1,0 +1,18 @@
+.commitee{
+    display: flex;
+
+    .navbarcommitee{
+        flex: 6;
+        
+        .commiteeTable
+        {
+          padding: 20px;
+          .commiteebtn{
+            margin-left: 77rem;
+          }
+          .savetablecommitee{
+            margin-top: 20px;
+          }
+         }
+    }
+}
