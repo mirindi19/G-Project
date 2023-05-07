@@ -7,8 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Siderbar from '../sidebar/Sidebar';
-import Navbar from '../navbar/Nav';
+import Siderbar from '../siderbar/Siderbar';
+import Topbar from '../topbar/Topbar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -44,11 +44,14 @@ const Commitee = () => {
     <div className="commitee">
     <Siderbar/>
     <div className="navbarcommitee">
-    <Navbar/>
+    <Topbar/>
     <div className="commiteeTable">
-    <Button variant="outlined" onClick={handleClickOpen} className="commiteebtn">
+    <div className="titlebtn">
+    <p className="listTitle">List Of Commitee</p>
+    <Button variant="outlined" onClick={handleClickOpen}>
     Add Commitee
   </Button>
+  </div>
   <Dialog open={open} onClose={handleClose}>
     <DialogTitle>Subscribe</DialogTitle>
     <DialogContent>

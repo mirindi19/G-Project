@@ -7,8 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Siderbar from '../sidebar/Sidebar';
-import Navbar from '../navbar/Nav';
+import Siderbar from '../siderbar/Siderbar';
+import Topbar from '../topbar/Topbar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -44,7 +44,7 @@ const Families = () => {
     <div className="families">
     <Siderbar/>
     <div className="navbarfamilies">
-    <Navbar/>
+    <Topbar/>
     <div className="familiesTable">
     <Button variant="outlined" onClick={handleClickOpen} className="familiesbtn">
     Add Families

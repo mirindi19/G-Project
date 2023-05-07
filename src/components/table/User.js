@@ -7,8 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Siderbar from '../sidebar/Sidebar';
-import Navbar from '../navbar/Nav';
+import Siderbar from '../siderbar/Siderbar';
+import  Topbar from '../topbar/Topbar';
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -27,8 +27,9 @@ const User = () => {
     <div className="user">
     <Siderbar/>
     <div className="navbaruser">
-    <Navbar/>
+    <Topbar/>
     <div className="userTable">
+    <p className="listTitle">List Of Users</p>
     <TableContainer component={Paper} className="savetable">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>

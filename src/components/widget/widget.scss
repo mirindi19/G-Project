@@ -1,0 +1,33 @@
+.widget{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+    border-radius: 10px;
+    height: 150px;
+    background-color: white; 
+
+    .left{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+        padding-left:90px;
+        padding-top: 40px;
+    
+        .title{
+            font-weight: bold;
+            font-size: 14px;
+            color: #6439ff;
+    
+        }
+        
+        .counter{
+            font-size: 28px;
+            font-weight: 300;
+            margin-left: 10px;
+        }
+    }
+}
+

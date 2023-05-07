@@ -29,7 +29,7 @@ const Topnav = () => {
     setAnchorElUser(null);
   };
   return (
-    <AppBar position="static" sx={{backgroundColor:'#00264D'}}>
+    <AppBar position="static" sx={{backgroundColor:'#090a0a'}}>
     <Container maxWidth="xl">
       <Toolbar disableGutters>
        <Box 
@@ -53,7 +53,7 @@ const Topnav = () => {
           }}
         >
           <p className='apacope'>
-          APACOPE 
+          AERG 
           </p>
         </Typography>
         </Box>
@@ -65,6 +65,7 @@ const Topnav = () => {
             aria-haspopup="true"
             onClick={handleOpenNavMenu}
             color="inherit"
+        
           >
             <MenuIcon />
           </IconButton>
@@ -88,7 +89,7 @@ const Topnav = () => {
           >
             {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
+                <Typography textAlign="center" style={{marginLeft: 950}}>{page}</Typography>
               </MenuItem>
             ))}
           </Menu>
@@ -115,7 +116,7 @@ const Topnav = () => {
             
           }}
         >
-          APACOPE
+          AERG
         </Typography>
         </Box>
         <Box sx={{ flexGrow: 1,  marginLeft:60, display: { xs: 'none', md: 'flex' } }}>

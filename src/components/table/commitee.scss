@@ -2,13 +2,19 @@
     display: flex;
 
     .navbarcommitee{
-        flex: 6;
+        flex: 5;
         
         .commiteeTable
         {
           padding: 20px;
-          .commiteebtn{
-            margin-left: 77rem;
+          .titlebtn{
+            display: flex;
+            gap:67.7rem;
+            .listTitle{
+              font-size: 20px;
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+              color:#F9842C;
+            }
           }
           .savetablecommitee{
             margin-top: 20px;
