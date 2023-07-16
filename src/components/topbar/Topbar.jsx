@@ -2,6 +2,7 @@ import './topbar.scss';
 import { Button } from '@mui/material';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import HomeIcon from '@mui/icons-material/Home';
+import { Logout } from '../../utils/auth';
 
 const Topbar = () => {
   return (
@@ -15,7 +16,7 @@ const Topbar = () => {
      <div className="item">
      <Button>
      <ExitToAppIcon className="icon"/>
-     <span >Logout</span>
+     <span onClick={() => Logout()}>Logout</span>
      </Button>
      </div>
    </div>
