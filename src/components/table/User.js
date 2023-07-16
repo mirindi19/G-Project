@@ -1,5 +1,4 @@
 import "./user.scss"
-import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,10 +8,43 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Siderbar from '../siderbar/Siderbar';
 import  Topbar from '../topbar/Topbar';
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import api from "../../utils/axios.config";
+
+const usePosts = () => {
+  const token = useSelector((state) => state.token.value);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    setLoading(true);
+    api
+      .get(`/api/authentication/users`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setPosts(response.data.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError('Error Occurred.');
+        setLoading(false);
+      });
+  }, [token]);
+
+  return {
+    loading,
+    error,
+    posts,
+  };
+};
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
-  }
+}
   
   const rows = [
     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
@@ -23,6 +55,7 @@ function createData(name, calories, fat, carbs, protein) {
   ];
   
 const User = () => {
+  const { loading, posts } = usePosts();
   return (
     <div className="user">
     <Siderbar/>
@@ -42,18 +75,15 @@ const User = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {posts.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.fullName}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.email}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.role}</TableCell>
             </TableRow>
           ))}
         </TableBody>

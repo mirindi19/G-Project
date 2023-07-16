@@ -4,7 +4,6 @@ import Topnav from '../../components/topnav/Topnav';
 const Hero = () => {
   return (
  <div className='landing'>
- <Topnav/>
     <div className='landing-image'>
       <div className='landing-text'>
         <h2>AERG FAMILY MANAGEMENT AND ANALYTICAL SYSTEM</h2>

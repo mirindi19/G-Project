@@ -11,10 +11,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import IMAGES from "../../Assets/images";
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-const pages = ['Home','Login'];
+const pages = [{ name: 'Home', link: ''}, { name: 'Login', link: 'signin'}];
 const settings = ['Logout'];
 const Topnav = () => {
+  const navigate = useNavigate();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -88,8 +91,8 @@ const Topnav = () => {
             }}
           >
             {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center" style={{marginLeft: 950}}>{page}</Typography>
+              <MenuItem key={page.link} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center" style={{marginLeft: 950}}>{page.name}</Typography>
               </MenuItem>
             ))}
           </Menu>
@@ -122,11 +125,11 @@ const Topnav = () => {
         <Box sx={{ flexGrow: 1,  marginLeft:60, display: { xs: 'none', md: 'flex' } }}>
           {pages.map((page) => (
             <Button
-              key={page}
-              onClick={handleCloseNavMenu}
+              key={page.link}
+              onClick={() => navigate(`/${page.link}`)}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-              {page}
+              {page.name}
             </Button>
           ))}
         </Box>

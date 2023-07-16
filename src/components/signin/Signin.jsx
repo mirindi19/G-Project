@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import Link2 from "@mui/material/Link";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
     Paper,
   } from "@mui/material";
+import { useSignIn, validate } from './hooks';
+import { Link } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -34,13 +36,17 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function Signin() {
+  const { loading, handleSignIn } = useSignIn()
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
+    const obj = { 
+      email: data.get('email'), 
       password: data.get('password'),
-    });
+    }
+    if (validate(obj)) {
+      handleSignIn(obj)
+    }
   };
 
   return (
@@ -53,6 +59,9 @@ export default function Signin() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            border: '1px solid #cecece',
+            padding: '10px',
+            borderRadius: '5px',
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -86,20 +95,32 @@ export default function Signin() {
               </Grid>
               <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account?
+                <Link to="/signup" variant="body2">
+                  <Link2>Do not have an account?</Link2>
                 </Link>
               </Grid>
             </Grid>
             </Grid>
+            { 
+              loading ? 
+              <Button
+              type="submit"
+              disabled={true}
+              fullWidth
+              variant="contained"
+              sx={{ height: '50px', mt: 3, mb: 2 }}
+            >
+              Loading...
+            </Button> :
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ height: '50px', mt: 3, mb: 2 }}
             >
-              Login
-            </Button>
+            Login
+          </Button>
+            }
           </Box>
         </Box>
       </Container>
